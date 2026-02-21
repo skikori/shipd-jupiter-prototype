@@ -10,6 +10,7 @@ This prototype repositions Shipd’s gamification from aesthetic to structural b
 - Locked/unlocked quest states
 - Avatar decoration rewards tied to progression
 - Persistent state (mocked via localStorage)
+- Reset the prototype using the reset button on the top right of the home page
 
 ## Happy Path
 1. Complete onboarding quests
