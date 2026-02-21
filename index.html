@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shipd – Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div class="brand-name">Shipd</div>
+    </div>
+
+    <nav class="nav">
+      <a class="navlink active" href="./index.html">Home</a>
+      <a class="navlink" href="./submission.html">My Submissions</a>
+      <a class="navlink" href="./profile.html">Profile</a>
+    </nav>
+
+    <div class="userpill">
+      <div class="avatar-small"></div>
+      <div>
+        <div class="userpill-name" id="userNameDisplay">Silvia</div>
+        <div class="userpill-level" id="userLevelDisplay">Level 1</div>
+      </div>
+      <button class="btn-reset" id="resetBtn" title="Reset demo">↻</button>
+    </div>
+  </header>
+
+  <main class="home-container">
+    <!-- Left: Onboarding Context -->
+    <div class="left-section">
+      <div class="context-card" id="contextCard">
+          <div class="context-content">
+          <div class="welcome-emoji">👋</div>
+          <h2>Welcome to Project Jupiter</h2>
+           <p>Help build the future of AI by contributing high-quality solutions. Complete the onboarding quests to unlock features.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Progress, Instructions, Quest Log (ordered) -->
+    <div class="right-section">
+      <!-- Progress Bar -->
+      <div class="progress-card">
+        <div class="profile-mini">
+          <div class="avatar-large"></div>
+          <div class="profile-info">
+            <div class="profile-name" id="profileNameDisplay">Silvia</div>
+            <div class="profile-level-display" id="profileLevelDisplay">Level 1</div>
+          </div>
+        </div>
+        <div class="xp-bar-wrap">
+          <div class="xp-bar">
+            <div class="xp-bar-fill" id="xpBarFill" style="width: 0%"></div>
+          </div>
+          <div class="xp-text">
+            <span id="xpDisplay">0</span> / <span id="xpMaxDisplay">100</span> XP
+          </div>
+        </div>
+      </div>
+
+      <!-- Instructions Box (shows quest instructions, not a quest) -->
+      <div class="instructions-box" id="instructionsBox"></div>
+
+      <!-- Quest Log -->
+      <div class="quests-log">
+        <div class="log-header">
+          <h3>Quest Log</h3>
+          <span class="log-count" id="questCount">0/8</span>
+        </div>
+        <div class="quest-items" id="quest-items"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Level Up Animation -->
+  <div class="level-up-animation" id="levelUpAnimation">
+    <div class="level-up-content">
+      <div class="level-up-text">LEVEL UP!</div>
+      <div class="level-up-number" id="levelUpNumber">3</div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

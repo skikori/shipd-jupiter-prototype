@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shipd – Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <div class="brand-name">Shipd</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navlink" href="./index.html">Home</a>
+      <a class="navlink" href="./submission.html">My Submissions</a>
+      <a class="navlink active" href="./profile.html">Profile</a>
+    </nav>
+
+    <div class="userpill">
+      <div class="avatar-small"></div>
+      <div>
+        <div class="userpill-name">Silvia</div>
+        <div class="userpill-level" id="levelInline">Level 1</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid two">
+      <div class="card">
+        <div class="card-head">
+          <h2>Profile</h2>
+        </div>
+        <div class="profile-avatar-large"></div>
+        <div class="profile-name">Silvia Shin</div>
+        <div class="profile-level">Level <span id="profileLevel">1</span> • Contributor</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Stats</h2>
+        </div>
+        <div class="profile-stat">
+          <div class="stat-label">Total XP</div>
+          <div class="stat-value" id="totalXp">0</div>
+        </div>
+        <div class="profile-stat">
+          <div class="stat-label">Contributions</div>
+          <div class="stat-value">0</div>
+        </div>
+        <div class="profile-stat">
+          <div class="stat-label">Badges Earned</div>
+          <div class="stat-value" id="badgeCount">0</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Badges</h2>
+      </div>
+      <div class="badge-grid" id="badgeGrid">
+        <span class="badge locked" data-badge="first">First Submit</span>
+        <span class="badge locked" data-badge="helper">Helpful</span>
+        <span class="badge locked" data-badge="streak">Streak</span>
+        <span class="badge locked" data-badge="creator">Problem Creator</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Decorations</h2>
+        <div class="muted" style="font-size:12px;">Tap to equip your frame</div>
+      </div>
+      <div id="decorationsGrid" class="decorations-grid"></div>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

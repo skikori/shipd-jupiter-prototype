@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>XP → Level Tests</title>
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, Arial; padding: 28px; background: #070614; color: #e6e6e6; }
+    .ok { color: #8ef5b0 }
+    .fail { color: #ff9a9a }
+    pre { background: rgba(255,255,255,0.02); padding:12px; border-radius:8px }
+    button { padding:8px 12px; border-radius:8px; background:#7c3aed; color:white; border:none; cursor:pointer }
+  </style>
+</head>
+<body>
+  <h2>XP → Level Mapping Tests</h2>
+  <p>Runs a few assertions against the same per-level math used in the app (base=100, increment=100).</p>
+  <button id="run">Run tests</button>
+  <div id="out"></div>
+
+  <script>
+    function getProgressForXp(xp) {
+      const baseXp = 100;
+      const increment = 100;
+      let level = 1;
+      let total = baseXp;
+      while (xp >= total) {
+        level++;
+        total += increment;
+      }
+      const xpForLevel = baseXp + (level - 1) * increment;
+      const prevXpForLevel = level === 1 ? 0 : baseXp + (level - 2) * increment;
+      const xpInLevel = xp - prevXpForLevel;
+      const xpNeeded = xpForLevel - prevXpForLevel;
+      const progress = Math.min(100, (xpInLevel / xpNeeded) * 100);
+      return { level, progress, xpInLevel, xpNeeded };
+    }
+
+    const cases = [
+      { xp: 0, expect: 1 },
+      { xp: 50, expect: 1 },
+      { xp: 99, expect: 1 },
+      { xp: 100, expect: 2 },
+      { xp: 199, expect: 2 },
+      { xp: 200, expect: 3 },
+      { xp: 250, expect: 3 }
+    ];
+
+    function runTests() {
+      const out = document.getElementById('out');
+      out.innerHTML = '';
+      let passed = 0;
+      cases.forEach(c => {
+        const res = getProgressForXp(c.xp);
+        const ok = res.level === c.expect;
+        const el = document.createElement('div');
+        el.innerHTML = `${ok ? '<span class="ok">PASS</span>' : '<span class="fail">FAIL</span>'} — XP=${c.xp} → got level ${res.level} (expected ${c.expect}) — progress ${Math.round(res.progress)}%`;
+        out.appendChild(el);
+        if (ok) passed++;
+      });
+      const summary = document.createElement('pre');
+      summary.textContent = `Passed ${passed}/${cases.length} tests`;
+      out.appendChild(summary);
+    }
+
+    document.getElementById('run').addEventListener('click', runTests);
+  </script>
+</body>
+</html>

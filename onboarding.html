@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shipd – Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <div class="brand-name">Shipd</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="navlink active" href="./index.html">Home</a>
+      <a class="navlink" href="./submission.html">My Submissions</a>
+      <a class="navlink" href="./profile.html">Profile</a>
+    </nav>
+
+    <div class="userpill">
+      <div class="avatar-small"></div>
+      <div>
+        <div class="userpill-name"><span id="profileNameInline">Silvia</span></div>
+        <div class="userpill-level">Level <span id="levelInline">2</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="home-layout">
+      <!-- Left: Onboarding + Profile -->
+      <section class="left-panel">
+        <div class="card onboarding-card">
+          <div class="card-head">
+            <h2>Getting Started</h2>
+            <p class="muted">Complete these steps to unlock your full contributor dashboard.</p>
+          </div>
+
+          <div class="onboarding-steps">
+            <div class="onboarding-step active" id="onboardStep1">
+              <div class="step-indicator">1</div>
+              <div>
+                <div class="step-title">Welcome to Shipd</div>
+                <div class="step-desc">We're building the future of AI training data. Your contributions directly improve frontier models.</div>
+              </div>
+              <button class="btn small" data-complete-onboarding="welcome">Got it</button>
+            </div>
+
+            <div class="onboarding-step" id="onboardStep2">
+              <div class="step-indicator">2</div>
+              <div>
+                <div class="step-title">Set Up Bank Account</div>
+                <div class="step-desc">Connect your bank to receive payments for approved contributions.</div>
+              </div>
+              <button class="btn small" data-complete-onboarding="bank">Connect Bank</button>
+            </div>
+
+            <div class="onboarding-step" id="onboardStep3">
+              <div class="step-indicator">3</div>
+              <div>
+                <div class="step-title">Complete Your First Problem</div>
+                <div class="step-desc">Try solving a sample problem to understand the workflow.</div>
+              </div>
+              <button class="btn small" data-complete-onboarding="first">View Problem</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Card -->
+        <div class="card profile-card">
+          <div class="profile-avatar-large"></div>
+          <div class="profile-name">Silvia Shin</div>
+          <div class="profile-level">Level <span id="profileLevel">2</span></div>
+          <div class="profile-bar-wrap">
+            <div class="profile-bar">
+              <div class="profile-bar-fill" id="profileBarFill" style="width: 53%"></div>
+            </div>
+            <div class="profile-bar-text">
+              <span id="profileXp">160</span> / <span id="profileXpMax">300</span> XP
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: Quests Panel -->
+      <section class="right-panel">
+        <div class="card quests-card">
+          <div class="card-head">
+            <h2>Quests</h2>
+          </div>
+
+          <!-- Onboarding Quests Section -->
+          <div class="quest-section">
+            <div class="quest-section-title">Onboarding Quests</div>
+            <div class="quest-list" id="onboardingQuestList"></div>
+          </div>
+
+          <!-- Other Quests Section -->
+          <div class="quest-section">
+            <div class="quest-section-title">Available Quests</div>
+            <div class="seg" style="margin-bottom: 12px;">
+              <button class="segbtn active" data-filter="all">All</button>
+              <button class="segbtn" data-filter="contrib">Contribution</button>
+              <button class="segbtn" data-filter="community">Community</button>
+            </div>
+            <div class="quest-list" id="otherQuestList"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Level Up Animation -->
+    <div class="level-up-animation" id="levelUpAnimation">
+      <div class="level-up-content">
+        <div class="level-up-text">LEVEL UP!</div>
+        <div class="level-up-number" id="levelUpNumber">3</div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
